@@ -18,6 +18,6 @@
             Repeat the password: <input type="password" name ="pass2"/><br/>
             <input type="submit" value="Sign me up!"/>
         </form>
-        <a hre="index.jsp">I think I have an account already.</a>
+        <a href="index.jsp">I think I have an account already.</a>
     </body>
 </html>
