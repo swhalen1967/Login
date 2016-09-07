@@ -1,12 +1,14 @@
 <%@page trimDirectiveWhitespaces="true" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${username != null}">
+    <c:redirect url="index.jsp"/>
+</c:if>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
-        <style type="text/css">
-            .flash {color:red;}
-        </style>
+        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
         <h1>Log in for excellent treasures.</h1>
@@ -16,5 +18,6 @@
             Password: <input type="password" name="pass" required/><br/>
             <input type="submit" value="Let me in"/>
         </form>
+        <a href="register.jsp">Register for awesome treasure!</a>
     </body>
 </html>

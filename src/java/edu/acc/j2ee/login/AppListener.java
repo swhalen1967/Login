@@ -14,13 +14,21 @@ public class AppListener implements ServletContextListener {
         String u2name = ctx.getInitParameter("user.2.name");
         String u2pass = ctx.getInitParameter("user.2.pass");
         
-        User u1 = new User(u1name, u1pass);
-        User u2 = new User(u2name, u2pass);
+        RegisterBean u1 = new RegisterBean(u1name, u1pass, u1pass);
+        RegisterBean u2 = new RegisterBean(u2name, u2pass, u2pass);
         
-        UserDao.addUser(u1);
-        UserDao.addUser(u2);
+        registerInitialUser(u1);
+        registerInitialUser(u2);
         
         ctx.setAttribute("candyVan", new CandyVan());
+    }
+    
+    private void registerInitialUser(RegisterBean reg) throws IllegalArgumentException {
+        String message = UserDao.validateRegistration(reg);
+        if (message != null)
+            throw new IllegalArgumentException(reg.getUser() + ": " + message);
+        if (!UserDao.register(reg))
+            throw new IllegalArgumentException(reg.getUser() + ": " + "User exists!");
     }
 
     @Override

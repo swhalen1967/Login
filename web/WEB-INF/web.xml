@@ -24,9 +24,17 @@
         <servlet-name>Controller</servlet-name>
         <servlet-class>edu.acc.j2ee.login.Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>edu.acc.j2ee.login.RegisterController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
